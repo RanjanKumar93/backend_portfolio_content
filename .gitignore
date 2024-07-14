@@ -1,1 +1,17 @@
-.vscode
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific folders
+.vscode/
+.idea/
+
+# Environment variables
+.env
