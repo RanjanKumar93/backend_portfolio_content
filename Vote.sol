@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
+pragma solidity >=0.8.2 <0.9.0;
 
 contract Vote {
     // Define the voter structure
@@ -128,11 +128,9 @@ contract Vote {
     }
 
     // Function to check if a candidate is not registered
-    function isCandidateNotRegistered(address _person)
-        private
-        view
-        returns (bool)
-    {
+    function isCandidateNotRegistered(
+        address _person
+    ) private view returns (bool) {
         for (uint256 i = 1; i < nextCandidateId; i++) {
             if (candidateDetails[i].candidateAddress == _person) {
                 return false;
@@ -196,14 +194,17 @@ contract Vote {
             getVotingStatus() == VotingStatus.InProgress,
             "Voting not in progress"
         );
-        require(voterDetails[_voterId].voteCandidateId == 0, "Already voted");
         require(
-            voterDetails[_voterId].voterAddress == msg.sender,
-            "Not authorized"
+            voterDetails[_voterId].voteCandidateId == 0,
+            "You have already voted"
         );
         require(
-            _candidateId >= 1 && _candidateId < nextCandidateId,
-            "Invalid candidate ID"
+            voterDetails[_voterId].voterAddress == msg.sender,
+            "You are not authourized"
+        );
+        require(
+            _candidateId >= 1 && _candidateId < 3,
+            "Candidate Id is not correct"
         );
 
         voterDetails[_voterId].voteCandidateId = _candidateId;
