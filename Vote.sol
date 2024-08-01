@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.2 <0.9.0;
+pragma solidity ^0.8.26;
 
 contract Vote {
     // Define the voter structure
@@ -128,9 +128,11 @@ contract Vote {
     }
 
     // Function to check if a candidate is not registered
-    function isCandidateNotRegistered(
-        address _person
-    ) private view returns (bool) {
+    function isCandidateNotRegistered(address _person)
+        private
+        view
+        returns (bool)
+    {
         for (uint256 i = 1; i < nextCandidateId; i++) {
             if (candidateDetails[i].candidateAddress == _person) {
                 return false;
