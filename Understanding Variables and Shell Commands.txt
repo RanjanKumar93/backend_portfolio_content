@@ -1,0 +1,29 @@
+## Understanding Variables and Shell Commands
+
+### Variables
+* **Variables** are named containers for storing data.
+* You assign values to variables using the equal sign (`=`).
+* To use a variable's value, you prefix its name with a dollar sign (`$`).
+
+**Example:**
+```bash
+name="Alice"
+greeting="Hello, $name!"
+echo $greeting
+```
+This would output:
+```
+Hello, Alice!
+```
+
+**Explanation:**
+* The `echo` command is used to print text to the terminal.
+* The variables `bankname`, `founded`, and `ceo` are enclosed in double quotes (`"`) to ensure proper expansion.
+* The dollar sign (`$`) before each variable name tells the shell to replace the variable with its value.
+
+**Key Points:**
+* Double quotes preserve spaces and special characters within variables.
+* Single quotes (`'`) prevent variable expansion, treating everything as literal text.
+
+By using variables and the `echo` command, you've created a dynamic sentence that can be easily modified by changing the variable values.
+

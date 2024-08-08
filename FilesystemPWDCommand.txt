@@ -1,0 +1,29 @@
+## Understanding Filesystems and the `pwd` Command
+
+### What is a Filesystem?
+A filesystem is essentially a hierarchical structure for organizing data on a computer. It's like a tree, with the root at the top and branches (directories) leading to leaves (files).
+
+* **Root Directory:** The starting point of the filesystem, often denoted by `/`.
+* **Directories (or Folders):** Containers for holding files and other directories.
+* **Files:** The actual data stored on the system.
+
+### The `pwd` Command
+To determine your current location within this filesystem, you use the `pwd` command. It stands for "print working directory."
+
+**Example:**
+
+```bash
+pwd
+```
+
+This command will output the absolute path to your current directory. An absolute path starts from the root directory and specifies the exact location of a file or directory.
+
+**Example Output:**
+
+```
+/home/user/Documents
+```
+
+This indicates that you are currently in the `Documents` directory, which is located within the `user` directory, which is in turn located within the root directory (`/`).
+
+By understanding filesystems and using the `pwd` command, you can efficiently navigate your computer's file structure.
