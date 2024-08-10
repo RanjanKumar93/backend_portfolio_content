@@ -15,10 +15,10 @@ interface IERC20 {
 
     function transfer(address to, uint256 value) external returns (bool);
 
-    function allowance(address owner, address spender)
-        external
-        view
-        returns (uint256);
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint256);
 
     function approve(address spender, uint256 value) external returns (bool);
 
@@ -46,11 +46,10 @@ contract MyERC20 is IERC20 {
         balanceOf[msg.sender] = totalSupply;
     }
 
-    function transfer(address to, uint256 value)
-        external
-        override
-        returns (bool)
-    {
+    function transfer(
+        address to,
+        uint256 value
+    ) external override returns (bool) {
         require(to != address(0), "ERC20: transfer to the zero address");
         require(value > 0, "ERC20: value must be greater than zero");
         require(balanceOf[msg.sender] >= value, "ERC20: insufficient balance");
@@ -62,20 +61,17 @@ contract MyERC20 is IERC20 {
         return true;
     }
 
-    function allowance(address owner, address spender)
-        external
-        view
-        override
-        returns (uint256)
-    {
+    function allowance(
+        address owner,
+        address spender
+    ) external view override returns (uint256) {
         return allowances[owner][spender];
     }
 
-    function approve(address spender, uint256 value)
-        external
-        override
-        returns (bool)
-    {
+    function approve(
+        address spender,
+        uint256 value
+    ) external override returns (bool) {
         require(spender != address(0), "ERC20: approve to the zero address");
 
         allowances[msg.sender][spender] = value;
